@@ -1,5 +1,17 @@
 function minDate(dates) {
   //write you code here
+	let date=dates.map(dateString => new Date(dateString));
+let mini=Infinity; 
+	let ans=0;
+	for(let i=0; i<date.length; i++){
+		let minisec= Date.UTC(date[i].getFullYear(),date[i].getMonth(),date[i].getDate());
+		if(mini>minisec){
+			mini=minisec;
+			ans=date[i];
+		}
+	}
+	let d=`${ans.getFullYear()}/${(ans.getMonth() + 1).toString().padStart(2, '0')}/${ans.getDate().toString().padStart(2, '0')}`
+	return d;
 }
 
 // Do not change the code
@@ -37,4 +49,4 @@ var dates = [
   "2023/03/30",
 ];
 
-alert(minDate(dates));
+//alert(minDate(dates));
